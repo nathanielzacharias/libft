@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzachari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 16:51:51 by nzachari          #+#    #+#             */
-/*   Updated: 2023/09/10 23:43:18 by nzachari         ###   ########.fr       */
+/*   Created: 2023/09/11 20:47:35 by nzachari          #+#    #+#             */
+/*   Updated: 2023/09/11 21:36:07 by nzachari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*strdup(const char *s)
 {
-	int	i;
+	size_t	len;
+	size_t	i;
+	char	*dup;
 
-	i = 0;
-	while (i < n)
-	{
-		if (s1[i] == s2[i])
-			i++;
-		break ;
-	}
-	return (s1[i] - s2[i]);
+	len = ft_strlen(s);
+	dup = (char *)malloc((len + 1) * sizeof(char));
+	if (!dup)
+		return (NULL);
+	i = ft_strlcpy(dup, s, len + 1);
+	return (dup);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char *s1 = "hello";
-	char *s2 = "ello";
-	printf("result is: %i\n", ft_strncmp(s1, s2, 1));
-}
-*/

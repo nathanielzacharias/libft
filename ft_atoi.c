@@ -1,36 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzachari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 16:51:51 by nzachari          #+#    #+#             */
-/*   Updated: 2023/09/10 23:43:18 by nzachari         ###   ########.fr       */
+/*   Created: 2023/09/11 13:38:39 by nzachari          #+#    #+#             */
+/*   Updated: 2023/09/11 15:02:49 by nzachari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+static int	ft_isspace(char c)
 {
-	int	i;
+	if (c == 32 || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
+}
 
-	i = 0;
-	while (i < n)
-	{
-		if (s1[i] == s2[i])
-			i++;
-		break ;
-	}
-	return (s1[i] - s2[i]);
-}
-/*
-#include <stdio.h>
-int	main(void)
+int	ft_atoi(const char *str)
 {
-	char *s1 = "hello";
-	char *s2 = "ello";
-	printf("result is: %i\n", ft_strncmp(s1, s2, 1));
+	int	result;
+	int	sign;
+
+	result = 0;
+	sign = 1;
+	while (ft_isspace(*str))
+	{
+		str++;
+	}
+	if (*str == '-')
+	{
+		sign = -1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	while (ft_isdigit(*str))
+	{
+		result = result * 10 + (*str - '0');
+		str++;
+	}
+	return (result * sign);
 }
-*/

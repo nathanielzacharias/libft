@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzachari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 16:51:51 by nzachari          #+#    #+#             */
-/*   Updated: 2023/09/10 23:43:18 by nzachari         ###   ########.fr       */
+/*   Created: 2023/09/10 23:47:07 by nzachari          #+#    #+#             */
+/*   Updated: 2023/09/11 01:35:35 by nzachari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
-		if (s1[i] == s2[i])
-			i++;
-		break ;
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((void *)&s[i]);
+		i++;
 	}
-	return (s1[i] - s2[i]);
+	return (NULL);
 }
 /*
 #include <stdio.h>
 int	main(void)
 {
-	char *s1 = "hello";
-	char *s2 = "ello";
-	printf("result is: %i\n", ft_strncmp(s1, s2, 1));
+	char	*s = "where is the love?";
+	char	c = 'r';
+	printf("result is: %p\n", ft_memchr(s, c, 7));
+	printf("original is: %p\n", &s[3]);
 }
 */

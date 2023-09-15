@@ -6,18 +6,20 @@
 /*   By: nzachari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:11:10 by nzachari          #+#    #+#             */
-/*   Updated: 2023/09/08 09:55:11 by nzachari         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:47:33 by nzachari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*a;
 
 	i = 0;
+	a = (unsigned char *)s;
 	while (i < n)
 	{
-		s[i] = 0;
+		a[i] = 0;
 		i++;
 	}
 }
