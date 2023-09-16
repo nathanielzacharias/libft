@@ -10,30 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_strlen(char *str)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (*str)
-	{
-		i++;
-		str++;
-	}
-	return (i);
-}
-
-size_t	strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	char	*oridst;
 	char	*orisrc;
 
 	i = 0;
 	j = 0;
 	oridst = dst;
-	orisrc = src;
+	orisrc = (char *)src;
 	while (*dst)
 		i++;
 	i += 1;
@@ -44,5 +33,5 @@ size_t	strlcat(char *dst, const char *src, size_t size)
 		j++;
 	}
 	dst[i + 1] = '\0';
-	return (strlen(oridst) + strlen(orisrc));
+	return (ft_strlen(oridst) + ft_strlen(orisrc));
 }

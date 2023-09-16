@@ -10,14 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	const char	*copy;
+
+	copy = s; 
+	while (*copy)
 	{
-		if (*s == c)
-			return (s);
+		if (*copy == c)
+			return ((char *)copy);
 		else
-			s++;
+			copy++;
 	}
 	return (NULL);
 }
+/*
+#include <stdio.h>
+
+int	main (void)
+{
+	char *s = "where?";
+	char c = 'r';
+
+	printf("%s\n", ft_strchr(s, c) );
+}
+*/
