@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 static size_t	thislen(char const *str)
 {
 	size_t	len;
