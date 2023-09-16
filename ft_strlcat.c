@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcat.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzachari <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,24 +14,26 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	size_t	dlen;
+	size_t	slen;
 	size_t	i;
 	size_t	j;
-	char	*oridst;
-	char	*orisrc;
 
+	dlen = ft_strlen(dst);
+	slen = ft_strlen(src);
 	i = 0;
-	j = 0;
-	oridst = dst;
-	orisrc = (char *)src;
-	while (*dst)
-		i++;
-	i += 1;
-	while (i < size - 1)
+	j = dlen;
+	if (size && (dlen < size - 1))
 	{
-		dst[i] = src[j];
-		i++;
-		j++;
+		while (src[i] && (dlen + i < size - 1))
+		{
+			dst[j] = src[i];
+			j++;
+			i++;
+		}
+		dst[j] = '\0';
 	}
-	dst[i + 1] = '\0';
-	return (ft_strlen(oridst) + ft_strlen(orisrc));
+	if (size <= dlen)
+		dlen = size;
+	return (dlen + slen);
 }
