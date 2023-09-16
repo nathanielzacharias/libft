@@ -17,10 +17,33 @@ char	*ft_strrchr(const char *s, int c)
 	int	len;
 
 	len = ft_strlen(s);
-	while (--len >= 0)
+	while (len >= 0)
 	{
-		if (s[len] == c)
-			return ((char *)s);
+		if (s[len] == (char)c)
+			return ((char *)&s[len]);
+		len--;
 	}
 	return (NULL);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	const char *str = "Hello, World!";
+    char target = 'o';
+
+    char *result = ft_strrchr(str, target);
+
+    if (result != NULL) 
+    {
+        printf("'%c' found at position: %ld\n", target, result - str);
+    } 
+    else 
+    {
+        printf("'%c' not found in the string.\n", target);
+    }
+    return 0;
+}
+*/

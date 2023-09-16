@@ -16,14 +16,16 @@ char	*ft_strchr(const char *s, int c)
 {
 	const char	*copy;
 
-	copy = s; 
+	copy = s;
 	while (*copy)
 	{
-		if (*copy == c)
+		if (*copy == (char)c)
 			return ((char *)copy);
 		else
 			copy++;
 	}
+	if (c == '\0')
+		return ((char *)copy);
 	return (NULL);
 }
 /*
@@ -31,9 +33,9 @@ char	*ft_strchr(const char *s, int c)
 
 int	main (void)
 {
-	char *s = "where?";
-	char c = 'r';
+	char *s = "teste";
+	char c = '\0';
 
-	printf("%s\n", ft_strchr(s, c) );
+	printf("start: %p\n nullterm: %p\n", s, ft_strchr(s, c));
 }
 */
