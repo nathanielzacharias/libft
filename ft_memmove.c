@@ -21,10 +21,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	s = src;
 	if (s < d)
 	{
-		s += n + 1;
-		d += n + 1;
+		s += n;
+		d += n;
 		while (n-- > 0)
-			*(d--) = *(s--);
+			*(--d) = *(--s);
 	}
 	else
 	{
