@@ -62,6 +62,7 @@ static char	*convert_to_str(char *str, int len, int n)
 		str[0] = '-';
 	return (str);
 }
+
 char	*ft_itoa(int n)
 {
 	int		len;
@@ -74,12 +75,13 @@ char	*ft_itoa(int n)
 	str = convert_to_str(str, len, n);
 	return (str);
 }
-
-// #include <stdio.h>
-// #include <limits.h>
-// int main(void)
-// {
-//  	printf("result is: %s\n", ft_itoa(INT_MIN));
-//  	printf("result is: %s\n", ft_itoa(0));
-//  	return (0);
-// }
+/*
+#include <stdio.h>
+#include <limits.h>
+int main(void)
+{
+ 	printf("result is: %s\n", ft_itoa(INT_MIN));
+ 	printf("result is: %s\n", ft_itoa(0));
+ 	return (0);
+}
+*/
