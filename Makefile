@@ -30,7 +30,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean:	clean
-	rm -f $(TARGET)
+	rm -f $(NAME) $(OBJS)
 
 re:	fclean all
 

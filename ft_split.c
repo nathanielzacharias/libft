@@ -37,8 +37,9 @@ static int	count_words(char const *s, char c)
 
 static int	word_length(char const *s, char c)
 {
-	int	len = 0;
+	int	len;
 
+	len = 0;
 	while (*s && *s != c)
 	{
 		len++;
