@@ -14,18 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	const char	*copy;
-
-	copy = s;
-	while (*copy)
-	{
-		if (*copy == (char)c)
-			return ((char *)copy);
-		else
-			copy++;
-	}
-	if (c == '\0')
-		return ((char *)copy);
+	while (*s && *s != (char)c)
+		s++;
+	if (*s == (char)c)
+		return ((char *)s);
 	return (NULL);
 }
 /*
@@ -36,6 +28,6 @@ int	main (void)
 	char *s = "teste";
 	char c = '\0';
 
-	printf("start: %p\n nullterm: %p\n", s, ft_strchr(s, c));
+	printf("start: %p\nsearched: %p\n", s, ft_strchr(s, c));
 }
 */
